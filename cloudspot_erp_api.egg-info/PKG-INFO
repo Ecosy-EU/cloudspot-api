@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: cloudspot-erp-api
-Version: 0.1.0
+Version: 0.2.0
 Summary: Wrapper for the Cloudspot ERP API endpoints
 Home-page: https://github.com/Ecosy-EU/inktool-wrapper
 Author: Alexander Schillemans
 Author-email: alexander.schillemans@lhs.global
 License: GPL-3.0-or-later
-Download-URL: https://github.com/Ecosy-EU/cloudspot-api/archive/refs/tags/0.1.0.tar.gz
+Download-URL: https://github.com/Ecosy-EU/cloudspot-api/archive/refs/tags/0.2.0.tar.gz
 Keywords: cloudspot
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
