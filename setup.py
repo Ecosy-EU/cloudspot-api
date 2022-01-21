@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'cloudspot-erp-api',         
   packages=['cloudspot', 'cloudspot.models', 'cloudspot.constants', 'cloudspot.endpoints'],
-  version = '0.1.0',
+  version = '0.2.0',
   license='GPL-3.0-or-later',
   description = 'Wrapper for the Cloudspot ERP API endpoints',
   long_description=long_description,
@@ -17,7 +17,7 @@ setup(
   author = 'Alexander Schillemans',
   author_email = 'alexander.schillemans@lhs.global',
   url = 'https://github.com/Ecosy-EU/inktool-wrapper',
-  download_url = 'https://github.com/Ecosy-EU/cloudspot-api/archive/refs/tags/0.1.0.tar.gz',
+  download_url = 'https://github.com/Ecosy-EU/cloudspot-api/archive/refs/tags/0.2.0.tar.gz',
   keywords = ['cloudspot'],
   install_requires=[
           'requests',
