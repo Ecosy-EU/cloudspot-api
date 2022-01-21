@@ -17,7 +17,7 @@ setup(
   author = 'Alexander Schillemans',
   author_email = 'alexander.schillemans@lhs.global',
   url = 'https://github.com/Ecosy-EU/inktool-wrapper',
-  download_url = 'https://github.com/Ecosy-EU/inktool-wrapper/archive/refs/tags/1.0.0.tar.gz',
+  download_url = 'https://github.com/Ecosy-EU/cloudspot-api/archive/refs/tags/0.1.0.tar.gz',
   keywords = ['cloudspot'],
   install_requires=[
           'requests',
