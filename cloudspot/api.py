@@ -2,6 +2,8 @@ import base64
 import requests
 import json
 
+from cloudspot.models.auth import AuthPermissions
+
 from . import config
 from .authhandler import AuthHandler
 from cloudspot.endpoints.auth import AuthMethods
@@ -91,6 +93,7 @@ class CloudspotERP_UserAPI(CloudspotERP_API):
         self.requestor = requestor.lower()
         
         self.headers.update({'X-ERP-REQUESTOR' : self.requestor })
+        self.permissions = AuthPermissions()
     
     def checkHeaderTokens(self):
         if 'X-ERP-TOKEN' not in self.headers and self.token:
@@ -103,4 +106,5 @@ class CloudspotERP_UserAPI(CloudspotERP_API):
         authResp = self.auth.authenticate(username, password)
         if authResp.hasError: raise BadCredentials('Username or password not correct.')
         
+        self.permissions = authResp.permissions
         self.setTokenHeader(authResp.token)
