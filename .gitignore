@@ -4,3 +4,5 @@ dist/__pycache__/
 __pycache__/
 Pipfile
 Pipfile.lock
+dist/
+cloudspot_erp_api.egg-info
