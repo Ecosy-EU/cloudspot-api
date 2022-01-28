@@ -25,3 +25,13 @@ class AuthResponse(BaseModel):
 
         self.token = token
         self.permissions = permissions if permissions else AuthPermissions()
+    
+class PermissionsResponse(BaseModel):
+    
+    def __init__(self,
+        permissions=None
+    ):
+
+        super().__init__()
+        
+        self.permissions = permissions if permissions else AuthPermissions()
