@@ -73,6 +73,8 @@ You can retrieve the permissions of an user by using the ```api``` object.
 If you've already authenticated the user before using the ```api```, you do not need to supply a token to the function.
 If you're using a new ```api``` object and want to retrieve the permissions for a specific token without authenticating first, you can supply the token to the function.
 
+If succesful, the permissions will be attached to ```api.permissions``` and overwrite any previous permissions.
+
 Retrieve permissions by authenticating first.
 
 ```python
@@ -106,6 +108,8 @@ The ```User``` object has three attributes: ```first_name```, ```last_name``` an
 
 If you've already authenticated the user before using the ```api```, you do not need to supply a token to the function.
 If you're using a new ```api``` object and want to retrieve the user for a specific token without authenticating first, you can supply the token to the function.
+
+If succesful, the user will be attached to ```api.user``` and overwrite any previous user.
 
 Retrieve user by authenticating first.
 
