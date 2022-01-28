@@ -66,6 +66,70 @@ for perm in api.permissions.items():
     print(perm.permission) # Contains the slug of the permission
 ```
 
+### Retrieving permissions
+
+You can retrieve the permissions of an user by using the ```api``` object.
+
+If you've already authenticated the user before using the ```api```, you do not need to supply a token to the function.
+If you're using a new ```api``` object and want to retrieve the permissions for a specific token without authenticating first, you can supply the token to the function.
+
+Retrieve permissions by authenticating first.
+
+```python
+
+api.authenticate(username, password)
+api.get_permissions()
+    
+for perm in api.permissions.items():
+    print(perm.permission)
+```
+
+Retrieve permissions by supplying a token. You can catch the error ```NoValidToken``` to handle a token that is not valid.
+
+```python
+
+try:
+    api.get_permissions(token)
+except NoValidToken as e:
+    print(e)
+    
+for perm in api.permissions.items():
+    print(perm.permission)
+```
+
+### Retrieving user info
+
+By default, an empty ```User``` object will be attached to the ```api```. You can retrieve the object with ```api.user```.
+To populate the ```User```, you need to execute the function ```api.get_user()``` first.
+
+The ```User``` object has three attributes: ```first_name```, ```last_name``` and ```email```.
+
+If you've already authenticated the user before using the ```api```, you do not need to supply a token to the function.
+If you're using a new ```api``` object and want to retrieve the user for a specific token without authenticating first, you can supply the token to the function.
+
+Retrieve user by authenticating first.
+
+```python
+
+api.authenticate(username, password)
+api.get_user()
+    
+print(user.first_name)
+```
+
+Retrieve user by supplying a token. You can catch the error ```NoValidToken``` to handle a token that is not valid.
+
+```python
+
+try:
+    api.get_user(token)
+except NoValidToken as e:
+    print(e)
+    
+print(user.first_name)
+```
+
+
 ### Basic example
 
 In the below example we'll demonstrate a simple external application where a user can log into.
