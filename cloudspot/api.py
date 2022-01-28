@@ -2,7 +2,7 @@ import base64
 import requests
 import json
 
-from cloudspot.models.auth import AuthPermissions
+from cloudspot.models.auth import AuthPermissions, User
 
 from . import config
 from .authhandler import AuthHandler
@@ -91,6 +91,7 @@ class CloudspotERP_UserAPI(CloudspotERP_API):
         super().__init__(test_mode=test_mode)
         self.token = token
         self.requestor = requestor.lower()
+        self.user = User()
         
         self.headers.update({'X-ERP-REQUESTOR' : self.requestor })
         self.permissions = AuthPermissions()
@@ -103,15 +104,22 @@ class CloudspotERP_UserAPI(CloudspotERP_API):
             
     def authenticate(self, username, password):
         
-        authResp = self.auth.authenticate(username, password)
-        if authResp.hasError: raise BadCredentials('Username or password not correct.')
+        auth_resp = self.auth.authenticate(username, password)
+        if auth_resp.hasError: raise BadCredentials('Username or password not correct.')
         
-        self.permissions = authResp.permissions
-        self.set_token_header(authResp.token)
+        self.permissions = auth_resp.permissions
+        self.set_token_header(auth_resp.token)
     
     def get_permissions(self, token=None):
         if token: self.set_token_header(token)
-        permResp = self.auth.get_permissions()
-        if permResp.hasError: raise NoValidToken('No valid token found.')
+        perm_resp = self.auth.get_permissions()
+        if perm_resp.hasError: raise NoValidToken('No valid token found.')
         
-        self.permissions = permResp.permissions
+        self.permissions = perm_resp.permissions
+        
+    def get_user(self, token=None):
+        if token: self.set_token_header(token)
+        user_resp = self.auth.get_user()
+        if user_resp.hasError: raise NoValidToken('No valid token found.')
+        
+        self.user = user_resp
