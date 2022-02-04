@@ -1,5 +1,3 @@
-from multiprocessing.sharedctypes import Value
-
 from cloudspot.constants.errors import NoValidToken
 from .base import APIEndpoint
 
