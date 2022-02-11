@@ -108,6 +108,7 @@ class CloudspotERP_UserAPI(CloudspotERP_API):
         if auth_resp.hasError: raise BadCredentials('Username or password not correct.')
         
         self.permissions = auth_resp.permissions
+        self.user.company = auth_resp.company
         self.set_token_header(auth_resp.token)
     
     def get_permissions(self, token=None):
