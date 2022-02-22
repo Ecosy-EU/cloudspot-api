@@ -44,7 +44,8 @@ class User(BaseModel):
         first_name=None,
         last_name=None,
         email=None,
-        company=None
+        company=None,
+        pin=None
     ):
         
         super().__init__()
@@ -53,3 +54,4 @@ class User(BaseModel):
         self.last_name = last_name
         self.email = email
         self.company = company
+        self.pin = pin
